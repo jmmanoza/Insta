@@ -72,6 +72,7 @@ class RegistrationViewController: UIViewController {
         super.viewDidLoad()
         addSubViews()
         assignDelegates()
+        addTarget()
     }
     
     override func viewDidLayoutSubviews() {
@@ -143,9 +144,7 @@ class RegistrationViewController: UIViewController {
         AuthManager.shared.registerNewUser(username: username, email: email, password: password) { isRegistered in
             DispatchQueue.main.async {
                 if isRegistered {
-                    
-                } else {
-                    
+                    self.dismiss(animated: true, completion: nil)
                 }
             }
         }
